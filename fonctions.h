@@ -1,0 +1,8 @@
+//
+// Created by elodi on 28/03/2024.
+//
+
+#ifndef CDATAFRAME_FONCTIONS_H
+#define CDATAFRAME_FONCTIONS_H
+
+#endif //CDATAFRAME_FONCTIONS_H

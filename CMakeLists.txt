@@ -3,4 +3,6 @@ project(CDataframe C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(CDataframe main.c)
+add_executable(CDataframe main.c
+        fonctions.c
+        fonctions.h)
