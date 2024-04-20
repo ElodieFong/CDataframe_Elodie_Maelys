@@ -19,7 +19,19 @@ int main() {
 
     print_col(mycol);
 
-    delete_column(mycol);
+    int num = 44;
+    int nbr_occ;
+    nbr_occ = nbr_occurence_x(num, mycol);
+    printf(" le nombre d'occurence de la valeur 44 est %d\n", nbr_occ);
+
+    int pos = 2;
+    printf("la valeur presente a la postition %d est la valeur %d\n", pos, val_pos_x(mycol, pos));
+
+    printf("il y a %d valeurs superieur a %d\n", nbr_val_sup(mycol, num), num);
+
+
+    delete_column(&mycol);
+
 
     return 0;
 }
