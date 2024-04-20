@@ -1,5 +1,5 @@
 //
-// Created by elodi on 28/03/2024.
+// Created by maely on 19/04/2024.
 //
 
 #include "fonctions.h"
@@ -31,3 +31,29 @@ int insert_value(COLUMN* col, int value)
     col->t_log++;
     return 1;
 }
+
+
+void delete_column(COLUMN **col) {
+    if (col == NULL || *col == NULL) {
+        return;
+    }
+    free((*col)->tab);
+    free((*col)->titre);
+    free(*col);
+    *col = NULL;
+
+}
+
+void print_col(COLUMN *col) {
+    if (col == NULL) {
+        printf("The column is empty or uninitialized.\n");
+        return;
+    }
+
+    printf("Column title: %s\n", col->titre);
+
+    for (int i = 0; i < col->t_log; ++i) {
+        printf("[%d] %d\n", i, col->tab[i]);
+    }
+}
+

@@ -1,9 +1,9 @@
 //
-// Created by elodi on 28/03/2024.
+// Created by maely on 19/04/2024.
 //
 
-#ifndef CDATAFRAME_FONCTIONS_H
-#define CDATAFRAME_FONCTIONS_H
+#ifndef PROJETC_FONCTIONS_H
+#define PROJETC_FONCTIONS_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,5 +18,8 @@ typedef struct {
 
 COLUMN *create_column(char* title);
 int insert_value(COLUMN* col, int value);
+void delete_column(COLUMN **col);
 
-#endif //CDATAFRAME_FONCTIONS_H
+void print_col(COLUMN *col);
+
+#endif //PROJETC_FONCTIONS_H
