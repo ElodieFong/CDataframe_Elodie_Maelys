@@ -41,11 +41,11 @@ int main() {
     print_cdf_lig(cdf, lig1, lig2);
     print_cdf_col(cdf, col1, col2);
 
-    add_cdf_lig(cdf, nb_lig);
-    del_cdf_lig(cdf, nb_lig);
-    add_cdf_col(cdf, nb_col);
-    del_cdf_col(cdf, nb_col);
-    rename_col(cdf, nb_col);
+    add_cdf_lig(cdf, lig);
+    del_cdf_lig(cdf, lig);
+    add_cdf_col(cdf, col);
+    del_cdf_col(cdf, col);
+    rename_col(cdf, col);
     if (val_existe(cdf, val))
         printf("%d existe dans le CDataFrame\n", &val);
     else

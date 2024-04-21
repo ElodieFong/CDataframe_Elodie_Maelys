@@ -14,11 +14,11 @@ void print_cdf(int* cdf);
 void print_cdf_lig(int* cdf, int lig1, int lig2);
 void print_cdf_col(int* cdf, int col1, int col2);
 
-int add_cdf_lig(int* cdf, int nb_lig);
-int del_cdf_lig(int* cdf, int nb_lig);
-int add_cdf_col(int* cdf, int nb_col);
-int del_cdf_col(int* cdf, int nb_col);
-int rename_col(int* cdf, int nb_col);
+int add_cdf_lig(int* cdf, int lig);
+int del_cdf_lig(int* cdf, int lig);
+int add_cdf_col(int* cdf, int col);
+int del_cdf_col(int* cdf, int col);
+int rename_col(int* cdf, int col);
 int val_existe(int* cdf, int val);
 int cellule(int* cdf, int lig, int col);
 int print_nom_col(int* cdf);
