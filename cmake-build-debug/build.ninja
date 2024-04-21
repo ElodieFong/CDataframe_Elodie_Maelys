@@ -61,6 +61,12 @@ build CMakeFiles/CDataframe.dir/fonctions.c.obj: C_COMPILER__CDataframe_unscanne
   OBJECT_DIR = CMakeFiles\CDataframe.dir
   OBJECT_FILE_DIR = CMakeFiles\CDataframe.dir
 
+build CMakeFiles/CDataframe.dir/cdframe.c.obj: C_COMPILER__CDataframe_unscanned_Debug C$:/Users/elodi/CLionProjects/CDataframe/cdframe.c || cmake_object_order_depends_target_CDataframe
+  DEP_FILE = CMakeFiles\CDataframe.dir\cdframe.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\CDataframe.dir
+  OBJECT_FILE_DIR = CMakeFiles\CDataframe.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target CDataframe
@@ -69,7 +75,7 @@ build CMakeFiles/CDataframe.dir/fonctions.c.obj: C_COMPILER__CDataframe_unscanne
 #############################################
 # Link the executable CDataframe.exe
 
-build CDataframe.exe: C_EXECUTABLE_LINKER__CDataframe_Debug CMakeFiles/CDataframe.dir/main.c.obj CMakeFiles/CDataframe.dir/fonctions.c.obj
+build CDataframe.exe: C_EXECUTABLE_LINKER__CDataframe_Debug CMakeFiles/CDataframe.dir/main.c.obj CMakeFiles/CDataframe.dir/fonctions.c.obj CMakeFiles/CDataframe.dir/cdframe.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\CDataframe.dir
