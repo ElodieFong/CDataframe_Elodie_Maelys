@@ -10,7 +10,6 @@ int main() {
         printf("\nValue added successfully to my column\n");
     else
         printf("Error adding value to my column\n");
-    printf("%d", mycol->tab[0]);
 
 
     insert_value(mycol, 52);
@@ -32,6 +31,21 @@ int main() {
 
     delete_column(&mycol);
 
+    int *cdf = create_cdf();
+    int nb_col = 5
+    int insert_cdf_col(nb_col);
 
+    print_cdf(cdf);
+    print_cdf_lig(cdf, lig1, lig2);
+    print_cdf_col(cdf, col1, col2);
+
+    add_cdf_lig(cdf, nb_lig);
+    del_cdf_lig(cdf, nb_lig);
+    add_cdf_col(cdf, nb_col);
+    del_cdf_col(cdf, nb_col);
+    rename_col(cdf, nb_col);
+    val_existe(cdf, val);
+    cellule(cdf, lig, col);
+    print_nom_col(cdf);
     return 0;
 }
