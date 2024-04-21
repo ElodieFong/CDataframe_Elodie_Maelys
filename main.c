@@ -47,9 +47,9 @@ int main() {
     del_cdf_col(cdf, nb_col);
     rename_col(cdf, nb_col);
     if (val_existe(cdf, val))
-        printf("%d existe\n", );
+        printf("%d existe dans le CDataFrame\n", &val);
     else
-        printf("Error adding value to my column\n");
+        printf("%d n'existe pas dans le CDataFrame\n", &val);
     cellule(cdf, lig, col);
     print_nom_col(cdf);
     return 0;
