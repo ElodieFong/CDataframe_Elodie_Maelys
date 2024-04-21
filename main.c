@@ -3,11 +3,11 @@
 #include "column.h"
 
 int main() {
-    COLUMN *mycol = create_column("My column");
+    COLUMN *mycol = create_column("My column\n");
     printf("titre=%s, t_phy=%d, t_log=%d", mycol->titre, mycol->t_phy, mycol->t_log);
     int val = 5;
     if (insert_value(mycol, val))
-        printf("\nValue added successfully to my column\n");
+        printf("Value added successfully to my column\n");
     else
         printf("Error adding value to my column\n");
 
@@ -32,10 +32,12 @@ int main() {
     delete_column(&mycol);
 
     int *cdf = create_cdf();
-    int nb_col = 5
-    int insert_cdf_col(nb_col);
+    int nb_col = 5;
+    insert_cdf_col(nb_col);
 
     print_cdf(cdf);
+
+    int lig1=0, lig2=2, col1=0, col2=2;
     print_cdf_lig(cdf, lig1, lig2);
     print_cdf_col(cdf, col1, col2);
 
@@ -44,7 +46,10 @@ int main() {
     add_cdf_col(cdf, nb_col);
     del_cdf_col(cdf, nb_col);
     rename_col(cdf, nb_col);
-    val_existe(cdf, val);
+    if (val_existe(cdf, val))
+        printf("%d existe\n", );
+    else
+        printf("Error adding value to my column\n");
     cellule(cdf, lig, col);
     print_nom_col(cdf);
     return 0;
