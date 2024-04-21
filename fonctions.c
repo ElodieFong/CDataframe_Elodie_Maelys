@@ -16,6 +16,7 @@ COLUMN *create_column(char* title)
 
 int insert_value(COLUMN* col, int value)
 {
+    int* tmp;
     if (col->t_phy==0)
     {
         col->tab = malloc(REALOC_SIZE*sizeof(int));
@@ -23,9 +24,12 @@ int insert_value(COLUMN* col, int value)
     }
     if (col->t_phy==col->t_log)
     {
-        col->tab = realloc(col->tab, REALOC_SIZE*sizeof(int));
+        tmp = realloc(col->tab, REALOC_SIZE*sizeof(int));
+        if (tmp==NULL)
+            return 0;
+        col->tab = tmp;
         col->t_phy += REALOC_SIZE;
-        return 0;
+
     }
     col->tab[col->t_log] = value;
     col->t_log++;

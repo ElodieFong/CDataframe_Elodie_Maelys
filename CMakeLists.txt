@@ -5,4 +5,5 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(CDataframe main.c
         fonctions.c
-        fonctions.h)
+        fonctions.h
+)
