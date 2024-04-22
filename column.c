@@ -1,7 +1,3 @@
-//
-// Created by maely on 19/04/2024.
-//
-
 #include "column.h"
 
 COLUMN *create_column(char* title)

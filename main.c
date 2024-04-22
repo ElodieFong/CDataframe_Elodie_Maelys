@@ -27,7 +27,7 @@ int main() {
     int pos = 2;
     printf("la valeur presente a la postition %d est la valeur %d\n", pos, val_pos_x(mycol, pos));
 
-    printf("il y a %d valeurs superieur a %d\n", nbr_val_sup(mycol, num), num);
+    printf("il y a %d valeurs superieures a %d\n", nbr_val_sup(mycol, num), num);
 
 
     delete_column(&mycol);
@@ -49,9 +49,9 @@ int main() {
     del_cdf_col(cdf, col);
     rename_col(cdf, col);
     if (val_existe(cdf, val))
-        printf("%d existe dans le CDataFrame\n", &val);
+        printf("%d existe dans le CDataFrame\n", val);
     else
-        printf("%d n'existe pas dans le CDataFrame\n", &val);
+        printf("%d n'existe pas dans le CDataFrame\n", val);
     cellule(cdf, lig, col);
     print_nom_col(cdf);
 
@@ -59,21 +59,12 @@ int main() {
     nb_col_cdf(cdf);
 
     int nb_cel = cel_val_egal(cdf, val);
-    if (nb_cel)
-        printf("il y a %d cellules égales à %d\n", &nb_cel,&val);
-    else
-        printf("%dil n'existe pas de cellule égale à %d\n", &val);
+    printf("il y a %d cellules égales à %d\n", nb_cel,val);
 
     nb_cel = cel_val_sup(cdf, val);
-    if (nb_cel)
-        printf("il y a %d cellules égales à %d\n", &nb_cel,&val);
-    else
-        printf("%dil n'existe pas de cellule égale à %d\n", &val);
+    printf("il y a %d cellules supérieures à %d\n", nb_cel,val);
 
     nb_cel = cel_val_inf(cdf, val);
-    if (nb_cel)
-        printf("il y a %d cellules égales à %d\n", &nb_cel,&val);
-    else
-        printf("%dil n'existe pas de cellule égale à %d\n", &val);
+    printf("il y a %d cellules inférieures à %d\n", nb_cel,val);
     return 0;
 }

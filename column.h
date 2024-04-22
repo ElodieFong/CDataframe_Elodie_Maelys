@@ -1,7 +1,3 @@
-//
-// Created by maely on 19/04/2024.
-//
-
 #ifndef PROJETC_FONCTIONS_H
 #define PROJETC_FONCTIONS_H
 

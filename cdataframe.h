@@ -1,7 +1,3 @@
-//
-// Created by elodi on 21/04/2024.
-//
-
 #ifndef CDATAFRAME_CDFRAME_H
 #define CDATAFRAME_CDFRAME_H
 
