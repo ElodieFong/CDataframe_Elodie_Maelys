@@ -7,7 +7,7 @@
 
 #include "column.h"
 
-COLUMN *create_cdf();
+int *create_cdf();
 int insert_cdf_col(int nb_col);
 
 void print_cdf(int* cdf);
