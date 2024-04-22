@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "column.h"
+#include "cdataframe.h"
 
 int main() {
     COLUMN *mycol = create_column("My column\n");
@@ -32,7 +33,7 @@ int main() {
     delete_column(&mycol);
 
     int *cdf = create_cdf();
-    int nb_col = 5;
+    int nb_col = 4;
     insert_cdf_col(nb_col);
 
     print_cdf(cdf);
@@ -41,6 +42,7 @@ int main() {
     print_cdf_lig(cdf, lig1, lig2);
     print_cdf_col(cdf, col1, col2);
 
+    int lig = 5, col = 5;
     add_cdf_lig(cdf, lig);
     del_cdf_lig(cdf, lig);
     add_cdf_col(cdf, col);
