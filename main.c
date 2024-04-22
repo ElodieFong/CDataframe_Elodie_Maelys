@@ -52,5 +52,26 @@ int main() {
         printf("%d n'existe pas dans le CDataFrame\n", &val);
     cellule(cdf, lig, col);
     print_nom_col(cdf);
+
+    nb_lig_cdf(cdf);
+    nb_col_cdf(cdf);
+
+    int nb_cel = cel_val_egal(cdf, val);
+    if (nb_cel)
+        printf("il y a %d cellules égales à %d\n", &nb_cel,&val);
+    else
+        printf("%dil n'existe pas de cellule égale à %d\n", &val);
+
+    nb_cel = cel_val_sup(cdf, val);
+    if (nb_cel)
+        printf("il y a %d cellules égales à %d\n", &nb_cel,&val);
+    else
+        printf("%dil n'existe pas de cellule égale à %d\n", &val);
+
+    nb_cel = cel_val_inf(cdf, val);
+    if (nb_cel)
+        printf("il y a %d cellules égales à %d\n", &nb_cel,&val);
+    else
+        printf("%dil n'existe pas de cellule égale à %d\n", &val);
     return 0;
 }

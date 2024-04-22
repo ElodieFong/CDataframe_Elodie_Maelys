@@ -23,4 +23,10 @@ int val_existe(int* cdf, int val);
 int cellule(int* cdf, int lig, int col);
 int print_nom_col(int* cdf);
 
+int nb_lig_cdf(int* cdf);
+int nb_col_cdf(int* cdf);
+int cel_val_egal(int* cdf, int val);
+int cel_val_sup(int* cdf, int val);
+int cel_val_inf(int* cdf, int val);
+
 #endif //CDATAFRAME_CDFRAME_H
