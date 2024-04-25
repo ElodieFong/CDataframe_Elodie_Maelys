@@ -4,7 +4,7 @@
 #include "cdataframe.h"
 
 int main() {
-    COLUMN *mycol = create_column("My column\n");
+    /*COLUMN *mycol = create_column("My column");
     printf("titre=%s, t_phy=%d, t_log=%d", mycol->titre, mycol->t_phy, mycol->t_log);
     int val = 5;
     if (insert_value(mycol, val))
@@ -31,12 +31,11 @@ int main() {
 
 
     delete_column(&mycol);
+*/
+    CDF *cdf = create_cdf();
+    insert_cdf_col(cdf);
 
-    int *cdf = create_cdf();
-    int nb_col = 4;
-    insert_cdf_col(nb_col);
-
-    print_cdf(cdf);
+    /*print_cdf(cdf);
 
     int lig1=0, lig2=2, col1=0, col2=2;
     print_cdf_lig(cdf, lig1, lig2);
@@ -65,6 +64,6 @@ int main() {
     printf("il y a %d cellules supérieures à %d\n", nb_cel,val);
 
     nb_cel = cel_val_inf(cdf, val);
-    printf("il y a %d cellules inférieures à %d\n", nb_cel,val);
+    printf("il y a %d cellules inférieures à %d\n", nb_cel,val);*/
     return 0;
 }

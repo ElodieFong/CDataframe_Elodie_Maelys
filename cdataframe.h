@@ -3,26 +3,32 @@
 
 #include "column.h"
 
+typedef struct {
+    int t_phy;
+    int t_log;
+    int* tab;
+}CDF;
+
 int *create_cdf();
-int insert_cdf_col(int nb_col);
+int insert_cdf_col(CDF* cdf);
 
-void print_cdf(int* cdf);
-void print_cdf_lig(int* cdf, int lig1, int lig2);
-void print_cdf_col(int* cdf, int col1, int col2);
+void print_cdf(CDF* cdf);
+void print_cdf_lig(CDF* cdf, int lig1, int lig2);
+void print_cdf_col(CDF* cdf, int col1, int col2);
 
-int add_cdf_lig(int* cdf, int lig);
-int del_cdf_lig(int* cdf, int lig);
-int add_cdf_col(int* cdf, int col);
-int del_cdf_col(int* cdf, int col);
-int rename_col(int* cdf, int col);
-int val_existe(int* cdf, int val);
-int cellule(int* cdf, int lig, int col);
-int print_nom_col(int* cdf);
+int add_cdf_lig(CDF* cdf, int lig);
+int del_cdf_lig(CDF* cdf, int lig);
+int add_cdf_col(CDF* cdf, int col);
+int del_cdf_col(CDF* cdf, int col);
+int rename_col(CDF* cdf, int col);
+int val_existe(CDF* cdf, int val);
+int cellule(CDF* cdf, int lig, int col);
+int print_nom_col(CDF* cdf);
 
-int nb_lig_cdf(int* cdf);
-int nb_col_cdf(int* cdf);
-int cel_val_egal(int* cdf, int val);
-int cel_val_sup(int* cdf, int val);
-int cel_val_inf(int* cdf, int val);
+int nb_lig_cdf(CDF* cdf);
+int nb_col_cdf(CDF* cdf);
+int cel_val_egal(CDF* cdf, int val);
+int cel_val_sup(CDF* cdf, int val);
+int cel_val_inf(CDF* cdf, int val);
 
 #endif //CDATAFRAME_CDFRAME_H
