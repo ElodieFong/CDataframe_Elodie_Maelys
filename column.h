@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define REALOC_SIZE 256
 
 typedef struct {

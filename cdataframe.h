@@ -6,11 +6,11 @@
 typedef struct {
     int t_phy;
     int t_log;
-    int* tab;
+    COLUMN *tab;
 }CDF;
 
-int *create_cdf();
-int insert_cdf_col(CDF* cdf);
+CDF *create_cdf();
+int insert_cdf_col(CDF* cdf, COLUMN* col);
 
 void print_cdf(CDF* cdf);
 void print_cdf_lig(CDF* cdf, int lig1, int lig2);
