@@ -22,6 +22,8 @@ void print_col(COLUMN *col);
 int nbr_occurence_x(int x, COLUMN *col);
 int val_pos_x(COLUMN *col, int x);
 int nbr_val_sup(COLUMN *col, int x);
+int nbr_val_inf(COLUMN *col, int x);
+int nbr_val_equ(COLUMN *col, int x);
 
 
 #endif //PROJETC_FONCTIONS_H

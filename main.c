@@ -3,9 +3,10 @@
 #include "column.h"
 #include "cdataframe.h"
 
-int main() {
-    COLUMN *mycol = create_column("My column");
-    printf("titre=%s, t_phy=%d, t_log=%d", mycol->titre, mycol->t_phy, mycol->t_log);
+int main()
+{
+    COLUMN *mycol = create_column("My column"), *colo = create_column("afubglobg");
+    /*printf("titre=%s, t_phy=%d, t_log=%d", mycol->titre, mycol->t_phy, mycol->t_log);
     int val = 5;
     if (insert_value(mycol, val))
         printf("Value added successfully to my column\n");
@@ -35,12 +36,20 @@ int main() {
 
 
 
-    delete_column(&mycol);
+    delete_column(&mycol);*/
 
-    CDF *cdf = create_cdf();
+    insert_value(mycol, 52);
+    insert_value(mycol, 59);
+    insert_value(colo, 98);
+    insert_value(colo, 24);
+
+    CDF* cdf = create_cdf();
     insert_cdf_col(cdf, mycol);
-
+    //print_cdf(cdf);
+    insert_cdf_col(cdf, colo);
     print_cdf(cdf);
+    print_cdf_lig(cdf, 1, 2);
+
 /*
     int lig1=0, lig2=2, col1=0, col2=2;
     print_cdf_lig(cdf, lig1, lig2);

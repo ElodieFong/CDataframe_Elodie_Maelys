@@ -11,8 +11,6 @@ CDF *create_cdf()
 
 int insert_cdf_col(CDF* cdf, COLUMN* col)
 {
-    char* titre;
-    int val, nb;
     int* tmp;
     if (cdf->t_phy==0)
     {
@@ -35,4 +33,21 @@ void print_cdf(CDF* cdf)
 {
     for (int i=0; i<cdf->t_log; i++)
         print_col(&cdf->tab[i]);
+}
+
+void print_cdf_lig(CDF* cdf, int lig1, int lig2)
+{
+    for (int i=0; i<cdf->t_log; i++)
+    {
+        if (i>0)
+            printf("\n");
+        printf("ligne %d: ", lig1+i);
+        COLUMN *col = &cdf->tab[i];
+        for (int j=lig1-1; j<lig2; j++)
+        {
+            printf("%d ", col->tab[j]);
+        }
+
+    }
+
 }
