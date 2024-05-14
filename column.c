@@ -1,3 +1,7 @@
+//
+// Created by maely on 19/04/2024.
+//
+
 #include "column.h"
 
 COLUMN *create_column(char* title)
@@ -52,7 +56,7 @@ void print_col(COLUMN *col) {
 
     printf("Column title: %s\n", col->titre);
 
-    for (int i = 0; i < col->t_log; ++i) {
+    for (int i = 0; i < col->t_log; i++) {
         printf("[%d] %d\n", i, col->tab[i]);
     }
 }
@@ -60,7 +64,7 @@ void print_col(COLUMN *col) {
 int nbr_occurence_x(int x, COLUMN *col){
     int nbr_occur = 0;
 
-    for (int i = 0; i < col->t_log; ++i){
+    for (int i = 0; i < col->t_log; i++){
         if (col->tab[i] == x){
             nbr_occur++;
         }
@@ -87,7 +91,27 @@ int val_pos_x(COLUMN *col, int x){
 int nbr_val_sup(COLUMN *col, int x){
     int nbr_val;
     for(int i; i < col->t_log; i++){
-        if (col->tab > x ){
+        if (col->tab[i] > x ){
+            nbr_val++;
+        }
+    }
+    return nbr_val;
+}
+
+int nbr_val_inf(COLUMN *col, int x){
+    int nbr_val;
+    for(int i; i < col->t_log; i++){
+        if (col->tab[i] < x ){
+            nbr_val++;
+        }
+    }
+    return nbr_val;
+}
+
+int nbr_val_equ(COLUMN *col, int x){
+    int nbr_val;
+    for(int i; i < col->t_log; i++){
+        if (col->tab[i] == x ){
             nbr_val++;
         }
     }
