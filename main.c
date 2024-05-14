@@ -4,10 +4,8 @@
 #include "cdataframe.h"
 
 int main() {
-    COLUMN *mycol = create_column("My column"), *coll = create_column("qlcnlqjcnb");
-    insert_value(mycol, 5);
-    insert_value(coll, 48);
-    /*printf("titre=%s, t_phy=%d, t_log=%d", mycol->titre, mycol->t_phy, mycol->t_log);
+    COLUMN *mycol = create_column("My column");
+    printf("titre=%s, t_phy=%d, t_log=%d", mycol->titre, mycol->t_phy, mycol->t_log);
     int val = 5;
     if (insert_value(mycol, val))
         printf("Value added successfully to my column\n");
@@ -18,6 +16,8 @@ int main() {
     insert_value(mycol, 52);
     insert_value(mycol, 44);
     insert_value(mycol, 15);
+    insert_value(mycol, 75);
+    insert_value(mycol, 3);
 
     print_col(mycol);
 
@@ -30,18 +30,15 @@ int main() {
     printf("la valeur presente a la postition %d est la valeur %d\n", pos, val_pos_x(mycol, pos));
 
     printf("il y a %d valeurs superieures a %d\n", nbr_val_sup(mycol, num), num);
+    printf("il y a %d valeurs inferieur a %d\n", nbr_val_inf(mycol, num), num);
+    printf("il y a %d valeurs egal a %d\n", nbr_val_equ(mycol, num), num);
+
 
 
     delete_column(&mycol);
-*/
-    int val, nb;
-    CDF* cdf = create_cdf();
 
+    CDF *cdf = create_cdf();
     insert_cdf_col(cdf, mycol);
-
-    print_cdf(cdf);
-
-    insert_cdf_col(cdf, coll);
 
     print_cdf(cdf);
 /*
