@@ -49,6 +49,7 @@ int main()
     insert_cdf_col(cdf, colo);
     print_cdf(cdf);
     print_cdf_lig(cdf, 1, 2);
+    print_cdf_col(cdf, 1, 2);
 
 /*
     int lig1=0, lig2=2, col1=0, col2=2;

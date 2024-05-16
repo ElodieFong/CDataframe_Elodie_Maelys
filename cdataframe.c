@@ -39,15 +39,27 @@ void print_cdf_lig(CDF* cdf, int lig1, int lig2)
 {
     for (int i=0; i<cdf->t_log; i++)
     {
-        if (i>0)
-            printf("\n");
+
         printf("ligne %d: ", lig1+i);
-        COLUMN *col = &cdf->tab[i];
         for (int j=lig1-1; j<lig2; j++)
+        {
+            COLUMN *col = &cdf->tab[j];
+            printf("%d ", col->tab[i]);
+        }
+        printf("\n");
+    }
+}
+
+void print_cdf_col(CDF* cdf, int col1, int col2)
+{
+    for (int i=col1-1; i<col2; i++)
+    {
+        printf("colonne %d: ", col1+i);
+        COLUMN *col = &cdf->tab[i];
+        for (int j=0; j<cdf->t_log; j++)
         {
             printf("%d ", col->tab[j]);
         }
-
+        printf("\n");
     }
-
 }
