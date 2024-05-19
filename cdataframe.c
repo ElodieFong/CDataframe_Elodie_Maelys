@@ -87,6 +87,10 @@ int del_cdf_lig(CDF* cdf, int lig)
             col->t_log--;
         }
     }
+    else
+    {
+
+    }
     return 1;
 }
 
@@ -94,5 +98,16 @@ int del_cdf_col(CDF* cdf, int col)
 {
     if (col==cdf->t_log)
         cdf->t_log--;
+    else
+    {
+
+    }
+    return 1;
+}
+
+int rename_col(CDF* cdf, int col, char* titre)
+{
+    COLUMN *colo = &cdf->tab[col-1];
+    colo->titre = titre;
     return 1;
 }
