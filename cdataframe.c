@@ -1,3 +1,6 @@
+//
+// Created by maely on 22/04/2024.
+//
 #include "cdataframe.h"
 
 CDF *create_cdf()
@@ -63,7 +66,7 @@ void print_cdf_col(CDF* cdf, int col1, int col2)
     }
 }
 
-int add_cdf_lig(CDF* cdf)
+int add_cdf_lig(CDF* cdf, int lig)
 {
     int val;
     for (int i=0; i<cdf->t_log; i++)
@@ -166,4 +169,40 @@ int print_noms_col(CDF* cdf)
         printf("%s ", col->titre);
     }
     return 1;
+}
+
+int nb_lig_cdf(CDF* cdf){
+    if (cdf == NULL || cdf->t_log == 0) {
+        return 0;
+    }
+
+    int max_rows = 0;
+    for (int i = 0; i < cdf->t_log; i++) {
+        COLUMN *col = &cdf->tab[i];
+        if (col->t_log > max_rows) {
+            max_rows = col->t_log;
+        }
+    }
+    return max_rows;
+}
+
+
+int nb_col_cdf(CDF* cdf){
+    if (cdf == NULL) {// Return 0 if the CDF is NULL
+    }
+    return cdf->t_log;
+}
+
+int cel_val_egal(CDF* cdf, int val){
+
+}
+
+
+int cel_val_sup(CDF* cdf, int val){
+
+}
+
+
+int cel_val_inf(CDF* cdf, int val){
+
 }

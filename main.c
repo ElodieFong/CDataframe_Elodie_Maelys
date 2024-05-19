@@ -64,6 +64,9 @@ int main()
         printf("%d n'existe pas dans le CDataFrame\n", 52);
     print_noms_col(cdf);
 
+    printf("\nil y a %d ligne\n", nb_lig_cdf(cdf));
+    printf("il y a %d colonne\n", nb_col_cdf(cdf));
+
 /*
     int lig1=0, lig2=2, col1=0, col2=2;
     print_cdf_lig(cdf, lig1, lig2);

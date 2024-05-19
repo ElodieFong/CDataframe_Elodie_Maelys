@@ -1,3 +1,6 @@
+//
+// Created by maely on 22/04/2024.
+//
 #ifndef CDATAFRAME_CDFRAME_H
 #define CDATAFRAME_CDFRAME_H
 
@@ -16,7 +19,7 @@ void print_cdf(CDF* cdf);
 void print_cdf_lig(CDF* cdf, int lig1, int lig2);
 void print_cdf_col(CDF* cdf, int col1, int col2);
 
-int add_cdf_lig(CDF* cdf);
+int add_cdf_lig(CDF* cdf, int lig);
 int del_cdf_lig(CDF* cdf, int lig);
 int add_cdf_col(CDF* cdf, char* titre);
 int del_cdf_col(CDF* cdf, int col);
