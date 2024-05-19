@@ -50,6 +50,9 @@ int main()
     print_cdf(cdf);
     print_cdf_lig(cdf, 1, 2);
     print_cdf_col(cdf, 1, 2);
+    add_cdf_lig(cdf);
+    //add_cdf_col(cdf);
+    print_cdf(cdf);
 
 /*
     int lig1=0, lig2=2, col1=0, col2=2;

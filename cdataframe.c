@@ -63,3 +63,21 @@ void print_cdf_col(CDF* cdf, int col1, int col2)
         printf("\n");
     }
 }
+
+int add_cdf_lig(CDF* cdf)
+{
+    int val;
+    for (int i=0; i<cdf->t_log; i++)
+    {
+        printf("entrer val:\n");
+        scanf("%d",&val);
+        COLUMN *col = &cdf->tab[i];
+        col->tab[col->t_log++]=val;
+    }
+    return 1;
+}
+
+int add_cdf_col(CDF* cdf)
+{
+
+}
