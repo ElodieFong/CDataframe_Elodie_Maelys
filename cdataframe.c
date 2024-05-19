@@ -79,6 +79,8 @@ int add_cdf_lig(CDF* cdf)
 int del_cdf_lig(CDF* cdf, int lig)
 {
     COLUMN *col = &cdf->tab[0];
+    if (lig > col->t_log)
+        return 0;
     if (lig==col->t_log)
     {
         for (int i=0; i<cdf->t_log; i++)
@@ -94,8 +96,25 @@ int del_cdf_lig(CDF* cdf, int lig)
     return 1;
 }
 
+int add_cdf_col(CDF* cdf, char* titre)
+{
+    int val;
+    COLUMN *col = create_column(titre), *row;
+    row = &cdf->tab[0];
+    for (int i=0; i<row->t_log; i++)
+    {
+        printf("entrer val:\n");
+        scanf("%d", &val);
+        insert_value(col, val);
+    }
+    cdf->tab[cdf->t_log++] = *col;
+    return 1;
+}
+
 int del_cdf_col(CDF* cdf, int col)
 {
+    if (col > cdf->t_log)
+        return 0;
     if (col==cdf->t_log)
         cdf->t_log--;
     else
@@ -126,11 +145,21 @@ int val_existe(CDF* cdf, int val)
     return 0;
 }
 
+int cellule(CDF* cdf, int lig, int col, int new_val)
+{
+    COLUMN *colonne = &cdf->tab[col-1];
+    if (col>cdf->t_log || lig>colonne->t_log)
+        return 0;
+    colonne->tab[lig-1] = new_val;
+    return 1;
+}
+
 int print_noms_col(CDF* cdf)
 {
     if (cdf==NULL)
         return 0;
     COLUMN *col;
+    printf("titres: ");
     for (int i=0; i<cdf->t_log; i++)
     {
         col = &cdf->tab[i];
