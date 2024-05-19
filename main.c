@@ -57,6 +57,10 @@ int main()
     del_cdf_col(cdf, 2);
     rename_col(cdf, 1, "titre");
     print_cdf(cdf);
+    if (val_existe(cdf, 52))
+        printf("%d existe dans le CDataFrame\n", 52);
+    else
+        printf("%d n'existe pas dans le CDataFrame\n", 52);
     print_noms_col(cdf);
 
 /*
@@ -70,10 +74,7 @@ int main()
     add_cdf_col(cdf, col);
     del_cdf_col(cdf, col);
     rename_col(cdf, col);
-    if (val_existe(cdf, val))
-        printf("%d existe dans le CDataFrame\n", val);
-    else
-        printf("%d n'existe pas dans le CDataFrame\n", val);
+
     cellule(cdf, lig, col);
     print_nom_col(cdf);
 

@@ -107,9 +107,23 @@ int del_cdf_col(CDF* cdf, int col)
 
 int rename_col(CDF* cdf, int col, char* titre)
 {
+    if (cdf==NULL)
+        return 0;
     COLUMN *colo = &cdf->tab[col-1];
     colo->titre = titre;
     return 1;
+}
+
+int val_existe(CDF* cdf, int val)
+{
+    COLUMN *col;
+    for (int i=0; i<cdf->t_log; i++)
+    {
+        col = &cdf->tab[i];
+        if (nbr_occurence_x(val, col))
+            return 1;
+    }
+    return 0;
 }
 
 int print_noms_col(CDF* cdf)
