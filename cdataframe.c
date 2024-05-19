@@ -24,8 +24,7 @@ int insert_cdf_col(CDF* cdf, COLUMN* col)
         cdf->tab = tmp;
         cdf->t_phy += REALOC_SIZE;
     }
-    cdf->tab[cdf->t_log] = *col;
-    cdf->t_log++;
+    cdf->tab[cdf->t_log++] = *col;
     return 1;
 }
 
@@ -77,7 +76,23 @@ int add_cdf_lig(CDF* cdf)
     return 1;
 }
 
-int add_cdf_col(CDF* cdf)
+int del_cdf_lig(CDF* cdf, int lig)
 {
+    COLUMN *col = &cdf->tab[0];
+    if (lig==col->t_log)
+    {
+        for (int i=0; i<cdf->t_log; i++)
+        {
+            col = &cdf->tab[i];
+            col->t_log--;
+        }
+    }
+    return 1;
+}
 
+int del_cdf_col(CDF* cdf, int col)
+{
+    if (col==cdf->t_log)
+        cdf->t_log--;
+    return 1;
 }

@@ -50,8 +50,11 @@ int main()
     print_cdf(cdf);
     print_cdf_lig(cdf, 1, 2);
     print_cdf_col(cdf, 1, 2);
+    //add_cdf_lig(cdf);
+    //insert_cdf_col(cdf, colo);
+    del_cdf_lig(cdf, 2);
     add_cdf_lig(cdf);
-    //add_cdf_col(cdf);
+    del_cdf_col(cdf, 2);
     print_cdf(cdf);
 
 /*
