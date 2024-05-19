@@ -57,6 +57,7 @@ int main()
     del_cdf_col(cdf, 2);
     rename_col(cdf, 1, "titre");
     print_cdf(cdf);
+    print_noms_col(cdf);
 
 /*
     int lig1=0, lig2=2, col1=0, col2=2;

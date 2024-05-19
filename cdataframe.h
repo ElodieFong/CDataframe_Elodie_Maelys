@@ -22,7 +22,7 @@ int del_cdf_col(CDF* cdf, int col);
 int rename_col(CDF* cdf, int col, char* titre);
 int val_existe(CDF* cdf, int val);
 int cellule(CDF* cdf, int lig, int col);
-int print_nom_col(CDF* cdf);
+int print_noms_col(CDF* cdf);
 
 int nb_lig_cdf(CDF* cdf);
 int nb_col_cdf(CDF* cdf);

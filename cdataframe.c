@@ -111,3 +111,16 @@ int rename_col(CDF* cdf, int col, char* titre)
     colo->titre = titre;
     return 1;
 }
+
+int print_noms_col(CDF* cdf)
+{
+    if (cdf==NULL)
+        return 0;
+    COLUMN *col;
+    for (int i=0; i<cdf->t_log; i++)
+    {
+        col = &cdf->tab[i];
+        printf("%s ", col->titre);
+    }
+    return 1;
+}
