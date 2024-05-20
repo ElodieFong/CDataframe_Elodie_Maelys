@@ -94,7 +94,13 @@ int del_cdf_lig(CDF* cdf, int lig)
     }
     else
     {
-
+        for (int i=0; i<cdf->t_log; i++)
+        {
+            col = &cdf->tab[i];
+            for (int j=lig; j<col->t_log; j++)
+                col->tab[j-1]=col->tab[j];
+            col->t_log--;
+        }
     }
     return 1;
 }
@@ -122,7 +128,9 @@ int del_cdf_col(CDF* cdf, int col)
         cdf->t_log--;
     else
     {
-
+        for (int i=col; i<cdf->t_log; i++)
+            cdf->tab[i-1]=cdf->tab[i];
+        cdf->t_log--;
     }
     return 1;
 }
