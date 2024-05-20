@@ -25,7 +25,8 @@ int main()
         printf("Pour afficher une partie des lignes tapez 2\n");
         printf("Pour afficher une partie des colonnes tapez 3\n");
         int affichage = 0;
-        scanf("/d", &affichage);
+
+        scanf("%d", &affichage);
 
         if(affichage == 1){
             print_cdf(cdf);
