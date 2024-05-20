@@ -13,7 +13,7 @@ CDF *create_cdf()
     return cdf;
 }
 
-// insert une colonne col dans un cdataframe cdf, si  l’insertion s’est bien effectuée, la fonction retourne 1, 0 sinon
+// insert une colonne col dans un cdataframe cdf, si l’insertion s’est bien effectuée, la fonction retourne 1, 0 sinon
 int insert_cdf_col(CDF* cdf, COLUMN* col)
 {
     int* tmp;
@@ -24,16 +24,16 @@ int insert_cdf_col(CDF* cdf, COLUMN* col)
     }
     if (cdf->t_phy==cdf->t_log) {
         tmp = realloc(cdf->tab, REALOC_SIZE * sizeof(COLUMN));
-        if (tmp == NULL)
+        if (tmp == NULL) // retourne 0 s'il n'y a pas assez de place
             return 0;
         cdf->tab = tmp;
         cdf->t_phy += REALOC_SIZE;
     }
-    cdf->tab[cdf->t_log++] = *col;
+    cdf->tab[cdf->t_log++] = *col; // ajoute la colonne et augmente la taille logique
     return 1;
 }
 
-// affiche le cdataframe cdf en entier sans return grâce aux print des valeurs
+// affiche le cdataframe cdf en entier sans return grâce aux print les valeurs de chaque colonne
 void print_cdf(CDF* cdf)
 {
     for (int i=0; i<cdf->t_log; i++)
@@ -78,7 +78,7 @@ int add_cdf_lig(CDF* cdf)
     return 1;
 }
 
-// supprime la ligne lig du cdataframe cdf
+// supprime la ligne lig du cdataframe cdf, renvoie 1 si c'est possible, 0 sinon
 int del_cdf_lig(CDF* cdf, int lig)
 {
     COLUMN *col = &cdf->tab[0];
@@ -98,7 +98,7 @@ int del_cdf_lig(CDF* cdf, int lig)
         {
             col = &cdf->tab[i];
             for (int j=lig; j<col->t_log; j++)
-                col->tab[j-1]=col->tab[j];
+                col->tab[j-1]=col->tab[j]; // décalage des valeurs pour ne pas avoir de trou dans la colonne
             col->t_log--;
         }
     }
@@ -121,7 +121,7 @@ int add_cdf_col(CDF* cdf, char* titre)
     return 1;
 }
 
-// supprime la colonne col du cdataframe cdf
+// supprime la colonne col du cdataframe cdf, renvoie 1 si c'est possible, 0 sinon
 int del_cdf_col(CDF* cdf, int col)
 {
     if (col > cdf->t_log)
@@ -131,7 +131,7 @@ int del_cdf_col(CDF* cdf, int col)
     else
     {
         for (int i=col; i<cdf->t_log; i++)
-            cdf->tab[i-1]=cdf->tab[i];
+            cdf->tab[i-1]=cdf->tab[i]; // décalage des valeurs pour ne pas avoir un trou dans le cdf
         cdf->t_log--;
     }
     return 1;
@@ -192,14 +192,13 @@ int nb_lig_cdf(CDF* cdf){
     }
     COLUMN *col = &cdf->tab[0];
     int max_rows = col->t_log;
-
     return max_rows;
 }
 
 
 // renvoie le nombre de colonnes dans un cdataframe cdf
 int nb_col_cdf(CDF* cdf){
-    if (cdf == NULL) {// Return 0 if the CDF is NULL
+    if (cdf == NULL) {// returne 0 si le cdf est NULL
     }
     return cdf->t_log;
 }
@@ -208,7 +207,7 @@ int nb_col_cdf(CDF* cdf){
 int cel_val_egal(CDF* cdf, int val){
     int egal = 0;
     for (int i = 0; i < cdf->t_log; i++) {
-        printf("");
+        printf(""); // ne marche pas sans le print
         egal += nbr_val_equ(&cdf->tab[i], val);
     }
     return egal;
@@ -219,7 +218,7 @@ int cel_val_egal(CDF* cdf, int val){
 int cel_val_sup(CDF* cdf, int val){
     int supp = 0;
     for(int i=0; i<cdf->t_log; i++){
-        printf("");
+        printf(""); // ne marche pas sans le print
         supp += nbr_val_sup(&cdf->tab[i], val);
     }
     return supp;
@@ -229,7 +228,7 @@ int cel_val_sup(CDF* cdf, int val){
 int cel_val_inf(CDF* cdf, int val){
     int inf = 0;
     for(int i=0; i<cdf->t_log; i++){
-        printf("");
+        printf(""); // ne marche pas sans le print
         inf += nbr_val_inf(&cdf->tab[i], val);
     }
     return inf;
