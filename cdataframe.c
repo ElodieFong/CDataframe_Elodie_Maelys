@@ -3,6 +3,7 @@
 //
 #include "cdataframe.h"
 
+// crée et retourne un cdataframe vide
 CDF *create_cdf()
 {
     CDF *cdf = (CDF*)malloc(sizeof(COLUMN));
@@ -12,6 +13,7 @@ CDF *create_cdf()
     return cdf;
 }
 
+// insert une colonne col dans un cdataframe cdf, si  l’insertion s’est bien effectuée, la fonction retourne 1, 0 sinon
 int insert_cdf_col(CDF* cdf, COLUMN* col)
 {
     int* tmp;
@@ -31,17 +33,18 @@ int insert_cdf_col(CDF* cdf, COLUMN* col)
     return 1;
 }
 
+// affiche le cdataframe cdf en entier sans return grâce aux print des valeurs
 void print_cdf(CDF* cdf)
 {
     for (int i=0; i<cdf->t_log; i++)
         print_col(&cdf->tab[i]);
 }
 
+// affiche le cdataframe cdf de la ligne lig1 à la ligne lig2
 void print_cdf_lig(CDF* cdf, int lig1, int lig2)
 {
     for (int i=0; i<cdf->t_log; i++)
     {
-
         printf("ligne %d: ", lig1+i);
         for (int j=lig1-1; j<lig2; j++)
         {
@@ -52,20 +55,17 @@ void print_cdf_lig(CDF* cdf, int lig1, int lig2)
     }
 }
 
+// affiche le cdataframe cdf de la colonne col1 à la colonne col2
 void print_cdf_col(CDF* cdf, int col1, int col2)
 {
     for (int i=col1-1; i<col2; i++)
     {
-        printf("colonne %d: ", col1+i);
         COLUMN *col = &cdf->tab[i];
-        for (int j=0; j<cdf->t_log; j++)
-        {
-            printf("%d ", col->tab[j]);
-        }
-        printf("\n");
+        print_col(col);
     }
 }
 
+// ajoute une ligne au cdataframe cdf
 int add_cdf_lig(CDF* cdf)
 {
     int val;
@@ -78,6 +78,7 @@ int add_cdf_lig(CDF* cdf)
     return 1;
 }
 
+// supprime la ligne lig du cdataframe cdf
 int del_cdf_lig(CDF* cdf, int lig)
 {
     COLUMN *col = &cdf->tab[0];
@@ -104,6 +105,7 @@ int del_cdf_lig(CDF* cdf, int lig)
     return 1;
 }
 
+// ajoute une colonne au cdataframe cdf
 int add_cdf_col(CDF* cdf, char* titre)
 {
     int val;
@@ -119,6 +121,7 @@ int add_cdf_col(CDF* cdf, char* titre)
     return 1;
 }
 
+// supprime la colonne col du cdataframe cdf
 int del_cdf_col(CDF* cdf, int col)
 {
     if (col > cdf->t_log)
@@ -134,6 +137,7 @@ int del_cdf_col(CDF* cdf, int col)
     return 1;
 }
 
+// remplace le titre de la colonne col, renvoie 1 si c'est possible, 0 sinon
 int rename_col(CDF* cdf, int col, char* titre)
 {
     if (cdf==NULL)
@@ -143,6 +147,7 @@ int rename_col(CDF* cdf, int col, char* titre)
     return 1;
 }
 
+// cherche si la valeur val existe dans le cdataframe cdf, renvoie 1 si elle existe, 0 sinon
 int val_existe(CDF* cdf, int val)
 {
     COLUMN *col;
@@ -155,6 +160,7 @@ int val_existe(CDF* cdf, int val)
     return 0;
 }
 
+// remplace la valeur de la cellule du cdataframe cdf à la ligne lig et colonne col par une nouvelle valeur new_val, renvoie 1 si c'est possible, 0 sinon
 int cellule(CDF* cdf, int lig, int col, int new_val)
 {
     COLUMN *colonne = &cdf->tab[col-1];
@@ -164,6 +170,7 @@ int cellule(CDF* cdf, int lig, int col, int new_val)
     return 1;
 }
 
+// affiche les titres des colonnes du cdataframe cdf, renvoie 1 si c'est possible, 0 sinon
 int print_noms_col(CDF* cdf)
 {
     if (cdf==NULL)
@@ -178,28 +185,26 @@ int print_noms_col(CDF* cdf)
     return 1;
 }
 
+// donne le nombre de lignes max_rows dans un cdataframe cdf
 int nb_lig_cdf(CDF* cdf){
     if (cdf == NULL || cdf->t_log == 0) {
         return 0;
     }
+    COLUMN *col = &cdf->tab[0];
+    int max_rows = col->t_log;
 
-    int max_rows = 0;
-    for (int i = 0; i < cdf->t_log; i++) {
-        COLUMN *col = &cdf->tab[i];
-        if (col->t_log > max_rows) {
-            max_rows = col->t_log;
-        }
-    }
     return max_rows;
 }
 
 
+// renvoie le nombre de colonnes dans un cdataframe cdf
 int nb_col_cdf(CDF* cdf){
     if (cdf == NULL) {// Return 0 if the CDF is NULL
     }
     return cdf->t_log;
 }
 
+// retourne le nombre de cellule possédant la valeur val
 int cel_val_egal(CDF* cdf, int val){
     int egal = 0;
     for (int i = 0; i < cdf->t_log; i++) {
@@ -210,7 +215,7 @@ int cel_val_egal(CDF* cdf, int val){
 
 }
 
-
+// retourne le nombre de cellule possédant une valeur suppérieur à la valeur val
 int cel_val_sup(CDF* cdf, int val){
     int supp = 0;
     for(int i=0; i<cdf->t_log; i++){
@@ -220,7 +225,7 @@ int cel_val_sup(CDF* cdf, int val){
     return supp;
 }
 
-
+// retourne le nombre de cellule possédant une valeur inférieur à la valeur val
 int cel_val_inf(CDF* cdf, int val){
     int inf = 0;
     for(int i=0; i<cdf->t_log; i++){
