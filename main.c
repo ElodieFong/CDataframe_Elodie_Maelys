@@ -54,8 +54,8 @@ int main()
     add_cdf_col(cdf, "newCol");
     //add_cdf_col(cdf, "test");
     //del_cdf_lig(cdf, 1);
-    //add_cdf_lig(cdf);
-    del_cdf_col(cdf, 1);
+    add_cdf_lig(cdf);
+    del_cdf_col(cdf, 3);
     //rename_col(cdf, 2, "titre");
     //cellule(cdf, 2, 3, 10);
     print_cdf(cdf);
