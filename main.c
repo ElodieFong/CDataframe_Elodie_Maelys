@@ -51,12 +51,13 @@ int main()
     print_cdf_lig(cdf, 1, 2);
     print_cdf_col(cdf, 1, 2);
     //add_cdf_lig(cdf);
-    add_cdf_col(cdf, "new col");
+    add_cdf_col(cdf, "newCol");
+    add_cdf_col(cdf, "test");
     //del_cdf_lig(cdf, 2);
     //add_cdf_lig(cdf);
-    del_cdf_col(cdf, 2);
+    //del_cdf_col(cdf, 2);
     rename_col(cdf, 2, "titre");
-    cellule(cdf, 1, 2, 10);
+    cellule(cdf, 2, 3, 10);
     print_cdf(cdf);
     if (val_existe(cdf, 52))
         printf("%d existe dans le CDataFrame\n", 52);

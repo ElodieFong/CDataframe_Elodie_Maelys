@@ -196,6 +196,7 @@ int nb_col_cdf(CDF* cdf){
 int cel_val_egal(CDF* cdf, int val){
     int egal = 0;
     for (int i = 0; i < cdf->t_log; i++) {
+        printf("");
         egal += nbr_val_equ(&cdf->tab[i], val);
     }
     return egal;
@@ -206,6 +207,7 @@ int cel_val_egal(CDF* cdf, int val){
 int cel_val_sup(CDF* cdf, int val){
     int supp = 0;
     for(int i=0; i<cdf->t_log; i++){
+        printf("");
         supp += nbr_val_sup(&cdf->tab[i], val);
     }
     return supp;
@@ -215,6 +217,7 @@ int cel_val_sup(CDF* cdf, int val){
 int cel_val_inf(CDF* cdf, int val){
     int inf = 0;
     for(int i=0; i<cdf->t_log; i++){
+        printf("");
         inf += nbr_val_inf(&cdf->tab[i], val);
     }
     return inf;
