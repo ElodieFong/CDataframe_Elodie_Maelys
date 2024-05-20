@@ -145,17 +145,20 @@ int main()
                     if(analyse == 3){
                         printf("entrer la valeur:\n");
                         scanf("%d", &val);
-                        printf("il y a %d fois une valeur egal a %d\n", cel_val_egal(cdf, val), val);
+                        int x = val;
+                        printf("il y a %d fois une valeur egal a %d\n", cel_val_egal(cdf, x), x);
                     }
                     if(analyse == 4){
                         printf("entrer la valeur:\n");
                         scanf("%d", &val);
-                        printf("il y a %d fois une valeur inferieur a %d\n", cel_val_inf(cdf, val), val);
+                        int x = val;
+                        printf("il y a %d fois une valeur inferieur a %d\n", cel_val_inf(cdf, x), x);
                     }
                     if(analyse == 5){
                         printf("entrer la valeur:\n");
                         scanf("%d", &val);
-                        printf("il y a %d fois une valeur superieur a %d\n", cel_val_sup(cdf, val), val);
+                        int x = val;
+                        printf("il y a %d fois une valeur superieur a %d\n", cel_val_sup(cdf, x), x);
                     }
 
                 }while(analyse != 6);
