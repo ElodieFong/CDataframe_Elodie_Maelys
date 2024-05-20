@@ -6,6 +6,51 @@
 int main()
 {
     COLUMN *mycol = create_column("My column"), *colo = create_column("afubglobg");
+    printf("Menu:\n");
+    printf("Pour creer un CDataframe, taper 1\n Pour quitter, taper 2\n");
+    int choix;
+    scanf("%d", &choix);
+
+    //acceder au menu
+    if (choix == 1){
+
+        //création et remplissage du CDataframe
+        CDF* cdf = create_cdf();
+        insert_cdf_col(cdf, mycol);
+        //print_cdf(cdf);
+        insert_cdf_col(cdf, colo);
+
+        //affichage du CDataframe
+        printf("Pour afficher tout le CDataframe, tapez 1\n");
+        printf("Pour afficher une partie des lignes tapez 2\n");
+        printf("Pour afficher une partie des colonnes tapez 3\n");
+        int affichage = 0;
+        scanf("/d", &affichage);
+
+        if(affichage == 1){
+            print_cdf(cdf);
+        }
+        if(affichage ==2){
+            printf("Entrez la limite de ligne minimum et maximum à afficher tel quel (ligne_min/ligne_max):\n");
+            int lig1, lig2 = 0;
+            scanf("%d/%d", lig1, lig2);
+            print_cdf_lig(cdf, lig1, lig2);
+        }
+        if(affichage == 3){
+            printf("Entrez la limite de colonnes minimum et maximum à afficher tel quel (ligne_min/ligne_max):\n");
+            int col1, col2 = 0;
+            scanf("%d/%d", col1, col2);
+            print_cdf_col(cdf, col1, col2);
+        }
+
+    }
+    if (choix == 2){
+        return 0;
+    }
+    CDF* cdf = create_cdf();
+
+
+
     /*printf("titre=%s, t_phy=%d, t_log=%d", mycol->titre, mycol->t_phy, mycol->t_log);
     int val = 5;
     if (insert_value(mycol, val))
@@ -42,12 +87,13 @@ int main()
     insert_value(mycol, 59);
     insert_value(colo, 98);
     insert_value(colo, 24);
-
+// donner pres enregistrer
+/*
     CDF* cdf = create_cdf();
     insert_cdf_col(cdf, mycol);
     //print_cdf(cdf);
     insert_cdf_col(cdf, colo);
-    print_cdf(cdf);
+    print_cdf(cdf);*/
     //print_cdf_lig(cdf, 1, 2);
     //print_cdf_col(cdf, 1, 1);
     //add_cdf_lig(cdf);
