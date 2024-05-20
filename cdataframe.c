@@ -128,10 +128,10 @@ int del_cdf_lig(CDF* cdf, int lig)
 }
 
 // ajoute une colonne au cdataframe cdf
-int add_cdf_col(CDF* cdf, char* titre)
+int add_cdf_col(CDF* cdf)
 {
     int val;
-    COLUMN *col = create_column(titre), *row;
+    COLUMN *col = create_column("nouvelle_col"), *row;
     row = &cdf->tab[0];
     for (int i=0; i<row->t_log; i++)
     {

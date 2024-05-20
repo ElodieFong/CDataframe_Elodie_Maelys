@@ -7,7 +7,6 @@
 int main()
 {
     COLUMN *mycol = create_column("My column"), *colo = create_column("Second col");
-    char* titre;
     printf("Menu:\n");
     printf("Pour creer un CDataframe, taper 1\n Pour quitter, taper 2\n");
     int choix, lig, col, val;
@@ -92,8 +91,7 @@ int main()
                     }
                     if(operation ==3){
                         printf("entrer le titre de la colonne:\n");
-                        scanf("%s", &titre);
-                        add_cdf_col(cdf, titre);
+                        add_cdf_col(cdf);
                     }
                     if (operation == 4){
                         printf("entrer la colonne à supprimer:\n");
@@ -101,9 +99,12 @@ int main()
                         del_cdf_col(cdf, col);
                     }
                     if(operation ==5){
+                        printf("entrer la colonne:\n");
+                        scanf("%d", &col);
                         printf("entrer le titre de la colonne:\n");
+                        char* titre;
                         scanf("%s", titre);
-                        rename_col(cdf, 2, titre);
+                        rename_col(cdf, col, titre);
                     }
                     if(operation == 6){
                         if (val_existe(cdf, 52))
@@ -142,14 +143,17 @@ int main()
                         printf("il y a %d colonne\n", nb_col_cdf(cdf));
                     }
                     if(analyse == 3){
+                        printf("entrer la valeur:\n");
                         scanf("%d", &val);
                         printf("il y a %d fois une valeur egal a %d\n", cel_val_egal(cdf, val), val);
                     }
                     if(analyse == 4){
+                        printf("entrer la valeur:\n");
                         scanf("%d", &val);
                         printf("il y a %d fois une valeur inferieur a %d\n", cel_val_inf(cdf, val), val);
                     }
                     if(analyse == 5){
+                        printf("entrer la valeur:\n");
                         scanf("%d", &val);
                         printf("il y a %d fois une valeur superieur a %d\n", cel_val_sup(cdf, val), val);
                     }

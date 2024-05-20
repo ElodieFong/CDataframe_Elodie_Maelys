@@ -21,7 +21,7 @@ void print_cdf_col(CDF* cdf, int col1, int col2);
 
 int add_cdf_lig(CDF* cdf);
 int del_cdf_lig(CDF* cdf, int lig);
-int add_cdf_col(CDF* cdf, char* titre);
+int add_cdf_col(CDF* cdf);
 int del_cdf_col(CDF* cdf, int col);
 int rename_col(CDF* cdf, int col, char* titre);
 int val_existe(CDF* cdf, int val);
