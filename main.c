@@ -67,6 +67,13 @@ int main()
     printf("\nil y a %d ligne\n", nb_lig_cdf(cdf));
     printf("il y a %d colonne\n", nb_col_cdf(cdf));
 
+
+    int val = 4;
+    printf("il y a %d fois une valeur egal a 4\n", cel_val_egal(cdf, val));
+    printf("il y a %d fois une valeur inferieur a 4\n", cel_val_inf(cdf, val));
+    printf("il y a %d fois une valeur superieur a 4\n", cel_val_sup(cdf, val));
+
+
 /*
     int lig1=0, lig2=2, col1=0, col2=2;
     print_cdf_lig(cdf, lig1, lig2);
