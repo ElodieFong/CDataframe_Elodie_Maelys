@@ -26,19 +26,19 @@ int main()
 
         int acces = 0;
         do {//option du menu
-            printf("Pour acceder a l'affichage taper 1\n");
-            printf("Pour acceder aux operation usuelles tapez 2\n");
-            printf("Pour acceder aux analyse et statistique tapez 3\n");
-            printf("Pour revenir au menu taper 1\n");
+            printf("Pour acceder a l'affichage, taper 1\n");
+            printf("Pour acceder aux operation usuelles, tapez 2\n");
+            printf("Pour acceder aux analyse et statistique, tapez 3\n");
+            printf("Pour quittez, tapez 4\n");
             printf("choisir un acces :");
             scanf("%d", &acces);
 
             if (acces == 1) {
 
                 printf("Pour afficher tout le CDataframe, tapez 1\n");
-                printf("Pour afficher une partie des lignes tapez 2\n");
-                printf("Pour afficher une partie des colonnes tapez 3\n");
-                printf("Pour quitter l'affichage tapez 4\n");
+                printf("Pour afficher une partie des lignes, tapez 2\n");
+                printf("Pour afficher une partie des colonnes, tapez 3\n");
+                printf("Pour quitter l'affichage, tapez 4\n");
                 int affichage = 0;
 
                 do {
@@ -53,6 +53,7 @@ int main()
                         int lig1, lig2 = 0;
                         scanf("%d/%d", &lig1, &lig2);
                         print_cdf_lig(cdf, lig1, lig2);
+                        printf("truc");
                     }
                     if (affichage == 3) {
                         printf("Entrez la limite de colonnes minimum et maximum à afficher tel quel (ligne_min/ligne_max):\n");
@@ -117,11 +118,12 @@ int main()
                 int analyse = 0;
 
                 do{
-                    printf("pour afficher le nombre de ligne, tapez 1");
-                    printf("pour afficher le nombre de colonne, tapez 2");
-                    printf("pour afficher le nombre de valeur egal a X, tapez 3");
-                    printf("pour afficher le nombre de valeur superieur a X, tapez 4");
-                    printf("pour afficher le nombre de valeur inferieur a X, taper 5");
+                    printf("pour afficher le nombre de ligne, tapez 1\n");
+                    printf("pour afficher le nombre de colonne, tapez 2\n");
+                    printf("pour afficher le nombre de valeur egal a X, tapez 3\n");
+                    printf("pour afficher le nombre de valeur superieur a X, tapez 4\n");
+                    printf("pour afficher le nombre de valeur inferieur a X, tapez 5\n");
+                    printf("pour quittez, tapez 6\n");
 
                     printf("entrez votre choix d'affichage :");
                     scanf("%d", &analyse);
@@ -145,7 +147,7 @@ int main()
                         printf("il y a %d fois une valeur superieur a 4\n", cel_val_sup(cdf, val));
                     }
 
-                }while(acces != 6);
+                }while(analyse != 6);
             }
         }while(acces != 4);
 
