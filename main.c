@@ -34,13 +34,13 @@ int main()
         if(affichage ==2){
             printf("Entrez la limite de ligne minimum et maximum à afficher tel quel (ligne_min/ligne_max):\n");
             int lig1, lig2 = 0;
-            scanf("%d/%d", lig1, lig2);
+            scanf("%d/%d", &lig1, &lig2);
             print_cdf_lig(cdf, lig1, lig2);
         }
         if(affichage == 3){
             printf("Entrez la limite de colonnes minimum et maximum à afficher tel quel (ligne_min/ligne_max):\n");
             int col1, col2 = 0;
-            scanf("%d/%d", col1, col2);
+            scanf("%d/%d", &col1, &col2);
             print_cdf_col(cdf, col1, col2);
         }
 
