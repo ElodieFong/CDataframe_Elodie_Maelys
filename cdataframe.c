@@ -43,21 +43,43 @@ void print_cdf(CDF* cdf)
 // affiche le cdataframe cdf de la ligne lig1 à la ligne lig2
 void print_cdf_lig(CDF* cdf, int lig1, int lig2)
 {
-    for (int i=0; i<cdf->t_log; i++)
+    COLUMN *col = &cdf->tab[0];
+    if (lig2>col->t_log)
     {
-        printf("ligne %d: ", lig1+i);
-        for (int j=lig1-1; j<lig2; j++)
-        {
-            COLUMN *col = &cdf->tab[j];
+        printf("il n'est pas possible d'afficher ces lignes\n");
+        return;
+    }
+    if (lig1==lig2)
+    {
+        COLUMN *col = &cdf->tab[lig1-1];
+        printf("ligne %d: ", lig1);
+        for (int i=0; i<cdf->t_log; i++)
             printf("%d ", col->tab[i]);
+    }
+    else
+    {
+        for (int i=0; i<cdf->t_log; i++)
+        {
+            printf("ligne %d: ", lig1+i);
+            for (int j=lig1-1; j<lig2; j++)
+            {
+                COLUMN *col = &cdf->tab[j];
+                printf("%d ", col->tab[i]);
+            }
+            printf("\n");
         }
-        printf("\n");
     }
 }
 
 // affiche le cdataframe cdf de la colonne col1 à la colonne col2
 void print_cdf_col(CDF* cdf, int col1, int col2)
 {
+    if (col2>cdf->t_log)
+    {
+        printf("il n'est pas possible d'afficher ces colonnes\n");
+        return;
+    }
+
     for (int i=col1-1; i<col2; i++)
     {
         COLUMN *col = &cdf->tab[i];
